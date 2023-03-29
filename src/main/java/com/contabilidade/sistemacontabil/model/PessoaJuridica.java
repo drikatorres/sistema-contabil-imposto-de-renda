@@ -5,8 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-import java.math.BigDecimal;
-
 public class PessoaJuridica {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +14,7 @@ public class PessoaJuridica {
     @Column
     private String cnpj;
     @Column
-    private Double faturamentoAnual;
+    private Double faturamentoMensal;
     @Column
     private Double impostoAPagar;
 
@@ -47,12 +45,12 @@ public class PessoaJuridica {
         this.cnpj = cnpj;
     }
 
-    public Double getFaturamentoAnual() {
-        return faturamentoAnual;
+    public Double getFaturamentoMensal() {
+        return faturamentoMensal;
     }
 
-    public void setFaturamentoAnual(Double faturamentoAnual) {
-        this.faturamentoAnual = faturamentoAnual;
+    public void setFaturamentoMensal(Double faturamentoMensal) {
+        this.faturamentoMensal = faturamentoMensal;
     }
 
     public Double getImpostoAPagar() {

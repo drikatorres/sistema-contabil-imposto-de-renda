@@ -70,7 +70,4 @@ public class PessoaFisicaService {
         
         return imposto;
     }
-
-
-
 }

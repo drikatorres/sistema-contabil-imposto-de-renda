@@ -28,4 +28,20 @@ public class PessoaJuridicaService {
     public void excluirPorId(Long id) {
         pessoaJuridicaRepository.deleteById(id);
     }
+
+    public Double calcularImpostoDeRendaPessoaJuridica (PessoaJuridica pessoaJuridica, Double faturamentoMensal) {
+        Double imposto;
+        Double aliquota;
+        if (faturamentoMensal <= 20000) {
+            aliquota = Double.valueOf(15/100);
+            imposto = faturamentoMensal*aliquota;
+            pessoaJuridica.setImpostoAPagar(imposto);
+            return imposto;
+        } else {
+            aliquota = Double.valueOf(25/100);
+            imposto = faturamentoMensal*aliquota;
+            pessoaJuridica.setImpostoAPagar(imposto);
+            return imposto;
+        }
+    }
 }
