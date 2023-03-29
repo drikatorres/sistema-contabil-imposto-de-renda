@@ -16,11 +16,9 @@ public class PessoaJuridica {
     @Column
     private String cnpj;
     @Column
-    private BigDecimal faturamentoAnual;
+    private Double faturamentoAnual;
     @Column
-    private BigDecimal despesaDedutivel;
-    @Column
-    private BigDecimal impostoAPagar;
+    private Double impostoAPagar;
 
     public PessoaJuridica() {
     }
@@ -49,27 +47,19 @@ public class PessoaJuridica {
         this.cnpj = cnpj;
     }
 
-    public BigDecimal getFaturamentoAnual() {
+    public Double getFaturamentoAnual() {
         return faturamentoAnual;
     }
 
-    public void setFaturamentoAnual(BigDecimal faturamentoAnual) {
+    public void setFaturamentoAnual(Double faturamentoAnual) {
         this.faturamentoAnual = faturamentoAnual;
     }
 
-    public BigDecimal getDespesaDedutivel() {
-        return despesaDedutivel;
-    }
-
-    public void setDespesaDedutivel(BigDecimal despesaDedutivel) {
-        this.despesaDedutivel = despesaDedutivel;
-    }
-
-    public BigDecimal getImpostoAPagar() {
+    public Double getImpostoAPagar() {
         return impostoAPagar;
     }
 
-    public void setImpostoAPagar(BigDecimal impostoAPagar) {
+    public void setImpostoAPagar(Double impostoAPagar) {
         this.impostoAPagar = impostoAPagar;
     }
 }

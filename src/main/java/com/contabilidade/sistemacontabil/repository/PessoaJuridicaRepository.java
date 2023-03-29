@@ -8,5 +8,5 @@ import java.math.BigDecimal;
 
 @Repository
 public interface PessoaJuridicaRepository extends CrudRepository<PessoaJuridica, Long> {
-    public BigDecimal calcularImpostoDeRendaPessoaFisica(BigDecimal faturamentoAnual, BigDecimal despesaDedutivel);
+    public Double calcularImpostoDeRendaPessoaJuridica(Double faturamentoAnual, Double despesaDedutivel);
 }

@@ -14,10 +14,8 @@ public class PessoaFisica {
     @Column
     private String cpf;
     @Column
-    private BigDecimal salarioAnual;
-    @Column
-    private BigDecimal despesaDedutivel;
-    private BigDecimal impostoAPagar;
+    private Double salario;
+    private Double impostoAPagar;
 
     public PessoaFisica() {
     }
@@ -46,27 +44,19 @@ public class PessoaFisica {
         this.cpf = cpf;
     }
 
-    public BigDecimal getSalarioAnual() {
-        return salarioAnual;
+    public Double getSalario() {
+        return salario;
     }
 
-    public void setSalarioAnual(BigDecimal salarioAnual) {
-        this.salarioAnual = salarioAnual;
+    public void setSalario(Double salarioAnual) {
+        this.salario = salario;
     }
 
-    public BigDecimal getDespesaDedutivel() {
-        return despesaDedutivel;
-    }
-
-    public void setDespesaDedutivel(BigDecimal despesaDedutivel) {
-        this.despesaDedutivel = despesaDedutivel;
-    }
-
-    public BigDecimal getImpostoAPagar() {
+    public Double getImpostoAPagar() {
         return impostoAPagar;
     }
 
-    public void setImpostoAPagar(BigDecimal impostoAPagar) {
+    public void setImpostoAPagar(Double impostoAPagar) {
         this.impostoAPagar = impostoAPagar;
     }
 }
