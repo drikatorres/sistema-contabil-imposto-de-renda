@@ -11,23 +11,28 @@ import java.util.Optional;
 
 @Service
 public class PessoaFisicaService {
+
     @Autowired
-    private PessoaFisicaRepository pessoaFisicaRepository;
+    private final PessoaFisicaRepository pessoaFisicaRepository;
+    public PessoaFisicaService (PessoaFisicaRepository pessoaFisicaRepository) {
+        this.pessoaFisicaRepository = pessoaFisicaRepository;
+    }
 
     public PessoaFisica salvar(PessoaFisica pessoaFisica) {
         return pessoaFisicaRepository.save(pessoaFisica);
     }
 
     public Optional<PessoaFisica> buscarPorId(Long id) {
-        return pessoaFisicaRepository.findById(id);
+        Optional<PessoaFisica> optionalPessoa = pessoaFisicaRepository.findById(id);
+        if (!optionalPessoa.isPresent()) {
+            throw new IllegalArgumentException("Pessoa não encontrada!");
+        }
+        return optionalPessoa;
+
     }
 
-    public List<PessoaFisica> buscarTodos() {
-        return (List<PessoaFisica>) pessoaFisicaRepository.findAll();
-    }
-
-    public void excluirPorId(Long id) {
-        pessoaFisicaRepository.deleteById(id);
+    public List<PessoaFisica> buscarTodasPessoas() {
+        return pessoaFisicaRepository.findAll();
     }
 
     public Double calcularImpostoDeRendaPessoaFisica(PessoaFisica pessoaFisica, Double salario){
@@ -69,5 +74,11 @@ public class PessoaFisicaService {
         }
         
         return imposto;
+    }
+
+    public Double calcularContribuicaoInss (PessoaFisica pessoaFisica, Double salario) {
+        Double contribuicao = salario * (11/100);
+        pessoaFisica.setContribuicaoAPagar(contribuicao);
+        return contribuicao;
     }
 }

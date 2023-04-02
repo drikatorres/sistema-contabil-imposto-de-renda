@@ -16,6 +16,15 @@ public class PessoaFisica {
     @Column
     private Double salario;
     private Double impostoAPagar;
+    private Double contribuicaoAPagar;
+
+    public Double getContribuicaoAPagar() {
+        return contribuicaoAPagar;
+    }
+
+    public void setContribuicaoAPagar(Double contribuicaoAPagar) {
+        this.contribuicaoAPagar = contribuicaoAPagar;
+    }
 
     public PessoaFisica() {
     }

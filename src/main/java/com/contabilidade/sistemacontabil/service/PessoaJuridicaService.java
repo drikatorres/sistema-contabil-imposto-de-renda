@@ -1,6 +1,7 @@
 package com.contabilidade.sistemacontabil.service;
 
 import com.contabilidade.sistemacontabil.model.PessoaJuridica;
+import com.contabilidade.sistemacontabil.repository.PessoaFisicaRepository;
 import com.contabilidade.sistemacontabil.repository.PessoaJuridicaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,11 @@ import java.util.Optional;
 @Service
 public class PessoaJuridicaService {
     @Autowired
-    private PessoaJuridicaRepository pessoaJuridicaRepository;
+    private final PessoaJuridicaRepository pessoaJuridicaRepository;
+
+    public PessoaJuridicaService (PessoaJuridicaRepository pessoaJuridicaRepository) {
+        this.pessoaJuridicaRepository = pessoaJuridicaRepository;
+    }
 
     public PessoaJuridica salvar(PessoaJuridica pessoaJuridica) {
         return pessoaJuridicaRepository.save(pessoaJuridica);
